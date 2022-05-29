@@ -1,0 +1,43 @@
+server:
+  port: 3000
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/demo?Timezone=UTC
+      username: root
+      password: 123456
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123456
+    virtual-host: /
+
+
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  file:
+    name: server.log
+  logback:
+    rolling policy:
+      max-file-size: 10MB
+      file-name-pattern: server-%d{yyyy-MM-dd}-%i.log
+  group:
+    backend: com.example
+  level:
+    root: info
+    backend: info
+
+netty:
+  port: 1254
+
+my-rabbit-queues:
+  name: queue1,queue2,queue3,queue4
